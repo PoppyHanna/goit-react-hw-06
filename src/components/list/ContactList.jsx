@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import Contact from "../contact/Contact";
-import styles from "./ContactList.module.css";
+import css from "./ContactList.module.css";
 
 export default function ContactList() {
   const contacts = useSelector((state) => state.contacts.items);
@@ -11,9 +11,9 @@ export default function ContactList() {
   );
 
   return (
-    <ul className={styles.list}>
+    <ul className={css.list}>
       {filteredContacts.map((contact) => (
-        <li key={contact.id} className={styles.item}>
+        <li key={contact.id} className={css.item}>
           <Contact contact={contact} />
         </li>
       ))}

@@ -6,10 +6,9 @@ const contactsSlice = createSlice({
   initialState: { items: [] },
   reducers: {
     addContact: (state, action) => {
-      // Генерація нового id
+   
       const newContact = { id: nanoid(), ...action.payload };
 
-      // Перевірка на дублювання id
       if (state.items.some(contact => contact.id === newContact.id)) {
         console.error('Contact with this ID already exists');
         return;

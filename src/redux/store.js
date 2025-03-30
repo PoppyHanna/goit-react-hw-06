@@ -4,11 +4,11 @@ import storage from 'redux-persist/lib/storage';
 import contactsReducer from './contactsSlice';
 import filtersReducer from './filtersSlice';
 
-// Налаштування для persist
+
 const contactsPersistConfig = {
   key: 'contacts',
   storage,
-  whitelist: ['items'], // Зберігаємо тільки items в contacts
+  whitelist: ['items'],
 };
 
 const rootReducer = combineReducers({
@@ -21,7 +21,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        // Ігноруємо несеріалізовані екшени persist, які можуть мати несеріалізовані дані
+        
         ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
       },
     }),

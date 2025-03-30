@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contactsSlice";
-import styles from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { IoPersonAddSharp } from "react-icons/io5";
+import css from "./ContactForm.module.css";
 
 const initialValues = {
   name: "",
@@ -35,27 +35,18 @@ const ContactForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form className={styles.form}>
-        <div className={styles.box}>
+      <Form className={css.form}>
+        <div className={css.box}>
           <label htmlFor="name">Name:</label>
-          <Field type="text" id="name" name="name" className={styles.input} />
-          <ErrorMessage name="name" component="div" className={styles.error} />
+          <Field type="text" id="name" name="name" className={css.input} />
+          <ErrorMessage name="name" component="div" className={css.error} />
         </div>
-        <div className={styles.box}>
+        <div className={css.box}>
           <label htmlFor="number">Phone Number:</label>
-          <Field
-            type="text"
-            id="number"
-            name="number"
-            className={styles.input}
-          />
-          <ErrorMessage
-            name="number"
-            component="div"
-            className={styles.error}
-          />
+          <Field type="text" id="number" name="number" className={css.input} />
+          <ErrorMessage name="number" component="div" className={css.error} />
         </div>
-        <button type="submit" className={styles.button}>
+        <button type="submit" className={css.button}>
           Add Contact <IoPersonAddSharp />
         </button>
       </Form>
